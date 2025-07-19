@@ -27,3 +27,20 @@ select DISTINCT drive_wheels,LENGTH(drive_wheels) AS string_length from `courser
 /* trim the space in drive_wheel data*/
 
 update `coursera-activity-2025.car_dataset.automobile_data` set drive_wheels = TRIM(drive_wheels) where true;
+
+
+SELECT * FROM `coursera-activity-2025.customer_purchase.customer_purchase` LIMIT 1000;
+ /* advanced data cleaning using desc */
+
+ select purchase_price from `coursera-activity-2025.customer_purchase.customer_purchase` order by purchase_price desc;
+
+ /*type casting*/
+ select cast(purchase_price as float64) from `coursera-activity-2025.customer_purchase.customer_purchase` order by cast(purchase_price as float64) desc;
+
+ /*concat*/
+
+ select concat(product_code,product_color) as new_product_code from `coursera-activity-2025.customer_purchase.customer_purchase` where product='couch';
+
+
+
+
