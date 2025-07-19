@@ -1,0 +1,29 @@
+SELECT * FROM `coursera-activity-2025.car_dataset.automobile_data` LIMIT 1000;
+/* finding the fuel type*/
+select distinct(fuel_type) from `coursera-activity-2025.car_dataset.automobile_data`;
+
+/* finding min and max length of dataset*/
+select min(length) as min_length,max(length) as max_length from `coursera-activity-2025.car_dataset.automobile_data`;
+
+/* fill in missing data*/
+select * from `coursera-activity-2025.car_dataset.automobile_data` where num_of_doors is null;
+
+/* update the null value*/
+update `coursera-activity-2025.car_dataset.automobile_data` SET num_of_doors = "four"
+WHERE make = "dodge" AND fuel_type = "gas"AND body_style = "sedan";
+
+/* idenifying potential error*/
+SELECT DISTINCT num_of_cylinders
+FROM `coursera-activity-2025.car_dataset.automobile_data`;
+
+/* correcing miss spelling*/
+update `coursera-activity-2025.car_dataset.automobile_data` set num_of_cylinders = "two" where num_of_cylinders = "tow";
+/* ensure consistency*/
+select distinct drive_wheels from `coursera-activity-2025.car_dataset.automobile_data`;
+
+/* finding length of drive_wheels*/
+select DISTINCT drive_wheels,LENGTH(drive_wheels) AS string_length from `coursera-activity-2025.car_dataset.automobile_data`;
+
+/* trim the space in drive_wheel data*/
+
+update `coursera-activity-2025.car_dataset.automobile_data` set drive_wheels = TRIM(drive_wheels) where true;
