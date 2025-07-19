@@ -1,0 +1,14 @@
+
+/* fetching only unique cusomer id */
+select distinct customer_id from `coursera-activity-2025.customer_data.customer_address`;
+/* text string*/
+
+select length(country) as letters_in_country from `coursera-activity-2025.customer_data.customer_address`;
+
+/* getting only string length greater than 2*/
+
+select country  from `coursera-activity-2025.customer_data.customer_address` where length(country) >2;
+/* use substr*/
+select distinct customer_id from `coursera-activity-2025.customer_data.customer_address` where substr(country, 1 ,2)='US';
+/* trim */
+select distinct customer_id from `coursera-activity-2025.customer_data.customer_address` where trim(state)='OH'
