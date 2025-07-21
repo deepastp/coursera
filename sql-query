@@ -12,3 +12,9 @@ select country  from `coursera-activity-2025.customer_data.customer_address` whe
 select distinct customer_id from `coursera-activity-2025.customer_data.customer_address` where substr(country, 1 ,2)='US';
 /* trim */
 select distinct customer_id from `coursera-activity-2025.customer_data.customer_address` where trim(state)='OH'
+
+/* Sort data by one column */
+SELECT * FROM projectID.movie_data.movies ORDER BY `Release Date` DESC;
+/* Filter and sort data in descending order */
+SELECT * FROM projectID.movie_data.movies WHERE Genre = "Comedy" AND Revenue > 300000000
+ORDER BY `Release Date` DESC;
