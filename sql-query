@@ -48,4 +48,16 @@ JOIN
     `coursera-activity-2025.warehouse_orders.warehouse` warehouse ON orders.warehouse_id = warehouse.warehouse_id
     group by warehouse.state
 
+/* using subquries*/
+
+
+select event.products_industry_name,count(event.products_industry_code) as numberoftimes FROM `bigquery-public-data.fda_food.food_events` as event
+WHERE event.products_industry_name IN (SELECT events.products_industry_name FROM `bigquery-public-data.fda_food.food_events` as events
+GROUP BY events.products_industry_name
+ORDER BY COUNT(events.products_industry_code) DESC LIMIT 10)
+AND outcomes LIKE '%Hospitalization%'
+--The AND operator displays a record if all the conditions are TRUE.
+--The LIKE operator is used in a WHERE clause to search for a specified pattern in a column.
+group by event.products_industry_name order by numberoftimes desc
+
 
